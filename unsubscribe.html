@@ -1,0 +1,46 @@
+<html>
+<header>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+</header>
+
+<body style="background-color: #fff">
+<div class="container-fluid py-3" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+                <div class="card card-body">
+                    <h3 class="text-center mb-4" style="font-family: 'Roboto', sans-serif;">Unsubscribe</h3>
+                    <form>
+                        <div class="form-group has-error">
+                            <input id='email' class="form-control input-lg" style="font-family: 'Roboto', sans-serif;" placeholder="E-mail Address" name="email" type="text">
+                        </div>
+                        <input id='unsubscribeButton' class="btn btn-lg btn-primary btn-block" style="border: none; background-color: #a20000; font-family: 'Roboto', sans-serif;" value="Unsubscribe me, yo!" type="submit">
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#unsubscribeButton").click(function (e){
+                e.preventDefault();
+
+                email = $('#email').val();
+                    console.log(JSON.stringify({'email': email}));
+                // $.ajax({
+                //     url: 'some-url',
+                //     type: 'post',
+                //     dataType: 'json',
+                //     data: JSON.stringify({'email': email}),
+                //     success: function(data) {
+                //                console.log(data);
+                //              }
+                // });    
+            });
+        });
+</script>
+
+</body>
+</html>
