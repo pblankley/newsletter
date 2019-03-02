@@ -9,12 +9,13 @@
     <div class="row">
         <div class="col-md-6 mx-auto">
                 <div class="card card-body">
-                    <h3 class="text-center mb-4" style="font-family: 'Roboto', sans-serif;">Unsubscribe</h3>
+                    <h3 class="text-center mb-4" style="font-family: 'Roboto', sans-serif;">Subscribe</h3>
                     <form>
                         <div class="form-group has-error">
+                            <input id='first_name' class="form-control input-lg" style="font-family: 'Roboto', sans-serif;" placeholder="First Name" name="first_name" type="text">
                             <input id='email' class="form-control input-lg" style="font-family: 'Roboto', sans-serif;" placeholder="E-mail Address" name="email" type="text">
                         </div>
-                        <input id='unsubscribeButton' class="btn btn-lg btn-primary btn-block" style="border: none; background-color: #a20000; font-family: 'Roboto', sans-serif;" value="Unsubscribe me, yo!" type="submit">
+                        <input id='subscribeButton' class="btn btn-lg btn-primary btn-block" style="border: none; background-color: #a20000; font-family: 'Roboto', sans-serif;" value="Subscribe!" type="submit">
                     </form>
                 </div>
         </div>
@@ -24,24 +25,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        $("#unsubscribeButton").click(function (e){
+        $("#subscribeButton").click(function (e){
                 e.preventDefault();
 
                 email = $('#email').val();
-                    console.log(JSON.stringify({'email': email}));
+                firstName = $('#first_name').val();
+                    console.log(JSON.stringify({'email': email, 'first_name': firstName}));
                 $.ajax({
-                    url: 'https://204ts51g83.execute-api.us-east-1.amazonaws.com/prod/remove_user',
+                    url: 'https://204ts51g83.execute-api.us-east-1.amazonaws.com/prod/add_user',
                     type: 'post',
                     dataType: 'json',
                     contentType: "application/json",
-                    data: JSON.stringify({'email': email}),
+                    data: JSON.stringify({'email': email, 'first_name': firstName}),
                     success: function(data) {
                                console.log(data);
                                 $('#email').val('');
-                                alert('You have been unsubscribed!');
+                                $('#first_name').val('');
+                                alert('You have been subscribed!');
                              },
                     error: function(e) {
-                                alert('We could not unsubscribe you :0 Please reply STOP to the email for manual removal.');
+                                alert('Sorry, we could not subscribe you :(');
                             }
                 });    
             });
