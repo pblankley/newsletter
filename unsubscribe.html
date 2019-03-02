@@ -29,15 +29,20 @@
 
                 email = $('#email').val();
                     console.log(JSON.stringify({'email': email}));
-                // $.ajax({
-                //     url: 'some-url',
-                //     type: 'post',
-                //     dataType: 'json',
-                //     data: JSON.stringify({'email': email}),
-                //     success: function(data) {
-                //                console.log(data);
-                //              }
-                // });    
+                $.ajax({
+                    url: 'https://204ts51g83.execute-api.us-east-1.amazonaws.com/prod/remove_user',
+                    type: 'post',
+                    dataType: 'json',
+                    contentType: "application/json",
+                    data: JSON.stringify({'email': email}),
+                    success: function(data) {
+                               console.log(data);
+                                alert('You have been unsubscribed!');
+                             },
+                    error: function(e) {
+                                alert('We could not unsubscribe you :0 Please reply STOP to the email for manual removal.');
+                            }
+                });    
             });
         });
 </script>
