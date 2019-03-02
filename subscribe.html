@@ -1,15 +1,49 @@
 <html>
 <header>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
 </header>
 
-<body style="background-color: #fff">
-<div class="container-fluid py-3" style="margin-top: 100px">
-    <div class="row">
+<style>
+.card-style {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.25rem;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #313639;
+}
+
+h3 {
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 400;
+  color: #313639;
+}
+</style>
+<body>
+<div class="container-fluid py-3">
+    <div class="row align-items-center">
+        <div class="col-md-6 mx-auto p-5">
+            <h1 class="text-center">Daily Tech News Summary</h1>
+            <p class="text-center">The newsletter is an aggregation of several of our favorite news sources, mostly technology related, with machine learning generated summaries. All credit goes to the original authors (obviously).</p>
+        </div>
+    </div> 
+    <div class="row h-40 align-items-center">
         <div class="col-md-6 mx-auto">
-                <div class="card card-body">
-                    <h3 class="text-center mb-4" style="font-family: 'Roboto', sans-serif;">Subscribe</h3>
+                <div class="shadow card card-style card-body text-center">
+                    <h3 class="text-center mb-4">Subscribe</h3>
                     <form>
                         <div class="form-group has-error">
                             <input id='first_name' class="form-control input-lg" style="font-family: 'Roboto', sans-serif;" placeholder="First Name" name="first_name" type="text">
@@ -18,6 +52,20 @@
                         <input id='subscribeButton' class="btn btn-lg btn-primary btn-block" style="border: none; background-color: #a20000; font-family: 'Roboto', sans-serif;" value="Subscribe!" type="submit">
                     </form>
                 </div>
+        </div>
+    </div>
+    <div class="row h-20 p-5 align-items-center">
+        <div class="col-md-4 mx-auto">
+            <h3 class="text-center">What's the deal?</h3>
+            <p class="text-center">If you subscribe, you will receive a daily email around 8am which will contain a few selected articles with machine learning generated summaries.  You'll also get some bonuses like Elon Musk's most popular tweets and xkcd comics.</p>
+        </div>
+        <div class="col-md-4 mx-auto">
+            <h3 class="text-center">Why would I care?</h3>
+            <p class="text-center">Some articles you need to spend time reading deeply to understand, and some articles could as easily be summarized in three sentences. We use machine learning to find the sentences that most meaningfully summarize the article to save your precious time.</p>
+        </div>
+        <div class="col-md-4 mx-auto">
+            <h3 class="text-center">Article selection?</h3>
+            <p class="text-center">We use unsupervised learning to choose the articles. Since we want more diversity in topics we map the articles into a vector space, cluster them to find similar themes, and finally, pick the articles that are most representative of themes found from clustering.</p>
         </div>
     </div>
 </div>
